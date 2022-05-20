@@ -9,15 +9,13 @@ import (
 )
 
 type Post struct {
-	userId int
-	id     int
-	title  string
-	body   string
+	UserId int
+	Id     int
+	Title  string
+	Body   string
 }
 
-type PostsCloud struct {
-	Posts []Post
-}
+type PostsCloud []Post
 
 func main() {
 	resp, err := http.Get("https://jsonplaceholder.typicode.com/posts")
@@ -29,8 +27,6 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-
-	fmt.Println(string(body))
 
 	var posts PostsCloud
 
